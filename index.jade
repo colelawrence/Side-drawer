@@ -1,0 +1,142 @@
+html.no-js(lang='en')
+    //<![end if]
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+        title=title
+        meta(name="viewport", content='width=device-width, initial-scale=1')
+        link(href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css", rel="stylesheet")
+        style.
+            body {
+                padding-top: 50px;
+                position: relative;
+            }
+
+            pre {
+                tab-size: 8;
+            }
+
+            @media screen and (max-width: 768px) {
+                .side-collapse-container{
+                    width:100%;
+                    position:relative;
+                    left:0;
+                    transition:left .4s;
+                }
+                .side-collapse-container.out{
+                    left:200px;
+                }
+                .side-collapse {
+                    top:50px;
+                    bottom:0;
+                    left:0;
+                    width:200px;
+                    position:fixed;
+                    overflow:hidden;
+                    transition:width .4s;
+                }
+                .side-collapse.in {
+                    width:0;
+                }
+            }
+
+        //-script(src='js/libs/modernizr-2.0.6.min.js')
+    body
+        header.navbar.navbar-fixed-top(role="banner").navbar-inverse
+            .container
+                .navbar-header
+                    button.navbar-toggle.pull-left(data-toggle="collapse-side",data-target=".side-collapse",data-target-2=".side-collapse-container",type="button")
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                .navbar-inverse.side-collapse.in
+                    nav(role="navigation").navbar-collapse
+                        ul.nav.navbar-nav
+                            li
+                                a(href="#Home") Home
+                            li
+                                a(href="#users") Users
+        .container.side-collapse-container
+            .row
+                h1 Hello
+                p This is a side opening nav demonstration
+                br
+                h2 Here is my script
+                pre.
+                    $(document).ready(function() {   
+                        var sideslider = $('[data-toggle=collapse-side]');
+                        var sel = sideslider.attr('data-target');
+                        var sel2 = sideslider.attr('data-target-2');
+                        sideslider.click(function(event){
+                            $(sel).toggleClass('in');
+                            $(sel2).toggleClass('out');
+                        });
+                    });
+                br
+                h2 Here is my style
+                pre.
+                    body {
+                        padding-top: 50px;
+                        position: relative;
+                    }
+
+                    @media screen and (max-width: 768px) {
+                        .side-collapse-container{
+                            width:100%;
+                            position:relative;
+                            left:0;
+                            transition:left .4s;
+                        }
+                        .side-collapse-container.out{
+                            left:200px;
+                        }
+                        .side-collapse {
+                            top:50px;
+                            bottom:0;
+                            left:0;
+                            width:200px;
+                            position:fixed;
+                            overflow:hidden;
+                            transition:width .4s;
+                        }
+                        .side-collapse.in {
+                            width:0;
+                        }
+                    }
+                br
+                h2 And my jade
+                pre.
+                    header.navbar.navbar-fixed-top(role="banner").navbar-inverse
+                        .container
+                            .navbar-header
+                                button.navbar-toggle.pull-left(data-toggle="collapse-side",data-target=".side-collapse",data-target-2=".side-collapse-container",type="button")
+                                    span.icon-bar
+                                    span.icon-bar
+                                    span.icon-bar
+                            .navbar-inverse.side-collapse.in
+                                nav(role="navigation").navbar-collapse
+                                    ul.nav.navbar-nav
+                                        li
+                                            a(href="#Home") Home
+                                        li
+                                            a(href="#users") Users
+                    .container.side-collapse-container
+                        .row
+                            Text you see here
+
+        footer
+            script(src='//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+            script(src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js")
+            script.
+                window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\\/script>')
+
+            script.
+                $(document).ready(function() {   
+                    var sideslider = $('[data-toggle=collapse-side]');
+                    var sel = sideslider.attr('data-target');
+                    var sel2 = sideslider.attr('data-target-2');
+                    sideslider.click(function(event){
+                        $(sel).toggleClass('in');
+                        $(sel2).toggleClass('out');
+                    });
+                });
